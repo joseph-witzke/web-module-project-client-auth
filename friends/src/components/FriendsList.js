@@ -6,7 +6,7 @@ export default class FriendsList extends Component {
     state = {
         friendsList: []
     };
-
+    
     componentDidMount() {
         this.getFriends();
     }
@@ -18,7 +18,6 @@ export default class FriendsList extends Component {
             }
         })
             .then(res => {
-                console.log(res)
                 this.setState({
                     ...this.state,
                     friendsList: res.data
@@ -32,7 +31,11 @@ export default class FriendsList extends Component {
         return (
             <div>
                 <h3>Friends List</h3>
-                <p>{this.state.friendsList.name}</p>
+                <div>
+                    {this.state.friendsList.map(friend => (
+                        <Friend key={friend.id} friend={friend} />
+                 ))}
+                </div>
             </div>
         )
     }
