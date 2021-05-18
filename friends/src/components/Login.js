@@ -23,7 +23,7 @@ export default class Login extends Component {
         axios.post('http://localhost:5000/api/login', this.state.credentials)
             .then(res => {
                 localStorage.setItem("token", res.data.payload);
-                //Add push to URL
+                this.props.history.push('/friends')
             })
             .catch(err => {
                 console.log(err);

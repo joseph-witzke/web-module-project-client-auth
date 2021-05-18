@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 //import components
 import Login from './components/Login';
+import FriendsList from './components/FriendsList';
 
 function App() {
   //logout goes here
@@ -21,9 +22,8 @@ function App() {
       </nav>
 
       <Switch>
-        <Route path='/login'>
-          <Login />
-        </Route>
+        <Route path='/friends' component={FriendsList} />
+        <Route path='/login' component={Login} />
       </Switch>
     </div>
     </Router>
