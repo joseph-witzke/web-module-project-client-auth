@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import React, { Component } from 'react'
 import Friend from './Friend';
 
@@ -12,12 +12,14 @@ export default class FriendsList extends Component {
     }
 
     getFriends = () => {
-        axios.get('http://localhost:5000/api/friends', {
-            headers: {
-                authorization: localStorage.getItem('token')
-            }
-        })
+      axiosWithAuth()
+        .get('http://localhost:5000/api/friends')
+        //     headers: {
+        //         authorization: localStorage.getItem('token')
+        //     }
+        // })
             .then(res => {
+                console.log(res)
                 this.setState({
                     ...this.state,
                     friendsList: res.data

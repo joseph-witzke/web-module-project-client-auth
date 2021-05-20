@@ -33,24 +33,24 @@ export default class Login extends Component {
         return (
             <div>
                 <form onSubmit={this.login}>
-                    <label>
-                        <input
-                            type="text"
-                            name="username"
-                            value={this.state.credentials.username}
-                            onChange={this.handleChange}
-                            placeholder="Enter Username"
-                        />
-                    </label>
-                    <label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={this.state.credentials.password}
-                            onChange={this.handleChange}
-                            placeholder="Enter Password"
-                        />
-                    </label>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        id="username"
+                        type="text"
+                        name="username"
+                        value={this.state.credentials.username}
+                        onChange={this.handleChange}
+                        placeholder="Enter Username"
+                    />
+                    
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        value={this.state.credentials.password}
+                        onChange={this.handleChange}
+                        placeholder="Enter Password"
+                    />
                     <button>Log in</button>
                 </form>
             </div>
